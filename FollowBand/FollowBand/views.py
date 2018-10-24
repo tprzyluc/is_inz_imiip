@@ -1,5 +1,8 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 def start(request):
-    return HttpResponse("<h1> Start </h1>")
+    return render(request,'start.html')
+
+def mainpage(request):
+    return render(request, 'mainpage.html')
     
