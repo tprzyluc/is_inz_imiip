@@ -19,11 +19,12 @@
 
     <form method = "post" action="{% url 'login' %}">
         {% csrf_token %}
-        {{ form.username }}
-        {{ form.password }}
+        <p style="text-align: center;">{{ form.username }}</p>
+        <p style="text-align: center;">{{ form.password }}</p>
+        
 
-        <input type = "submit" = value = "login">
-        <input type = "hidden" name = "next" value = "{{ next }}">
+        <p style="text-align: center;"><input type = "submit" = value = "login"></p>
+        <p style="text-align: center;"><input type = "hidden" name = "next" value = "{{ next }}"></p>
     </form>
 </body>
 </html>
