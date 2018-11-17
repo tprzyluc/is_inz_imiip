@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{{% load leaflet_tags %}
+{% load javascript_settings_tags %}
+{% block localizations %}
+{% if user.is_authenticated %}
+
+
+
+
+
+<head>
+    {% leaflet_js %}
+    {% leaflet_css %}
+</head>
+
+
+<body>
+    <script type="text/javascript">
+        function map_init_basic (map, options) {
+
+            L.marker([50.636307099999996, 20.2700857]).addTo(map);
+        
+        }
+
+
+    </script>
+
+<style>
+  .leaflet-container 
+  {  /* all maps */
+    width:  800px;
+    height: 400px;
+  }
+
+  #specialbigmap 
+  {
+    height: 800x;
+  }
+
+  table, th, td 
+  {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+</style>
+{% leaflet_map "yourmap" callback="window.map_init_basic" %}     
+</body> 
+
+{% for localization in localizations reversed %}
+    {% if user == localization.client %}
+      <hr>
+      <h1><button>{{ localization.created_date}}</button></h1>
+      <h1>{{ localization.posX }}</h1>
+      <h1>{{ localizattion.posX }}</h1>
+      <h1>{{ localization.posY }}</h1>
+    
+    {% endif %} 
+{% endfor %}
+<hr>
+{% endif %}
+{% endblock %}
+
+
+
+
+
+  

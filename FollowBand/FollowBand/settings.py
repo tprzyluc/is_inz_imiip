@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -37,6 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'localization',
+    'leaflet',
+    'javascript_settings',
+    
 ]
 
 MIDDLEWARE = [
@@ -66,6 +69,15 @@ TEMPLATES = [
         },
     },
 ]
+
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (50, 20),
+    'DEFAULT_ZOOM': 15,
+    'MIN_ZOOM': 3,
+    'MAX_ZOOM': 20,
+    'ATTRIBUTION_PREFIX': 'Powered by FollowBand - Tymoteusz Przylucki',
+    'RESET_VIEW': False,
+}
 
 WSGI_APPLICATION = 'FollowBand.wsgi.application'
 
@@ -118,5 +130,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL = '/start'
-LOGOUT_REDIRECT_URL = '/start'
+LOGIN_REDIRECT_URL = 'base'
+LOGOUT_REDIRECT_URL = 'home'

@@ -1,16 +1,12 @@
 import paho.mqtt.client as mqtt
 import time
+# Create your models here.
 
 
 broker_host = "m20.cloudmqtt.com"
 broker_port = "19641" 
 user_name = "gvzgfqqm"
 password_to_server = "eB2dAtAmGpPS"
-
-
-
-
-
 
 
 #------------------------------------------------------
@@ -25,16 +21,6 @@ password_to_server = "eB2dAtAmGpPS"
 # 6-255: Currently unused.
 #------------------------------------------------------
 
-# def on_connect(client, userdata, flags, err)
-#     if err == 0:
-#         print("Connected OK. Err code = ", err)
-#     else:
-#         print("FAIL: Err code: ",err)
-
-# def Initialize_client(client_name):
-#     client = mqtt.Client(client_name, False)
-
-# def set_Connection()
 
 def on_log(client, userdata, lever, buf):
     print("log: "+buf)
@@ -65,14 +51,13 @@ def on_message(client, userdata, msg):
 # ********************************************
 
 
-#client = Initialize_client("Python1")
 client = mqtt.Client("Krzychu")
 client.on_connect = on_connect
 client.on_log = on_log
 client.on_disconnect = on_disconnected
-#client.on_connect = on_connect
 client.username_pw_set(user_name,password_to_server)
 client.connect(broker_host,int(broker_port))
+
 client.on_message = on_message
 client.loop_start()
 client.subscribe("Kacper/Dzidon",0)
@@ -84,9 +69,3 @@ time.sleep(1)
 
 client.loop_forever()
 client.disconnect()
-
-
-
-
-    
-
