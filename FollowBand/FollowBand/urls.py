@@ -16,12 +16,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path, re_path
 from . import views
-
+from django.views.generic import TemplateView
+from localization.views import localizationView
 
 urlpatterns = [
-    re_path('^$', views.start),
-    path(r'admin/', admin.site.urls),
-    path(r'accounts/', include('django.contrib.auth.urls')),
-    path(r'start/', views.mainpage),
+
+    path('', TemplateView.as_view(template_name='start.html'), name = 'home'),
+    path('home', TemplateView.as_view(template_name='base.html'), name = 'base'),
+    path('admin/',admin.site.urls),
+    path('accounts/',include('django.contrib.auth.urls')),
+    path('current/',views.view_user_id),
+    path('localization/',localizationView), 
+
+
+
+    # path(r'admin/', admin.site.urls),
+    # path(r'accounts/', include('django.contrib.auth.urls')),
+    # #path(r'start/', views.mainpage),
+    # path(r'logout/', views.start),
+  
    #path(r'homepage/', include('homepage.urls'))
 ]
