@@ -12,7 +12,7 @@ def localizationView(request):
     chujek = "kupsztal"
     context = {
         'localizations': localizations,
-        'arg': chujek
+        'arg': chujek,
     }
     #args = {'form': form, 'localizations': localizations}
     return render(request, "detail.html", context)

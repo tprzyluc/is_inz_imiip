@@ -72,11 +72,11 @@ TEMPLATES = [
 
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (50, 20),
-    'DEFAULT_ZOOM': 15,
+    'DEFAULT_ZOOM': 13,
     'MIN_ZOOM': 3,
     'MAX_ZOOM': 20,
     'ATTRIBUTION_PREFIX': 'Powered by FollowBand - Tymoteusz Przylucki',
-    'RESET_VIEW': False,
+    'RESET_VIEW': True,
 }
 
 WSGI_APPLICATION = 'FollowBand.wsgi.application'
